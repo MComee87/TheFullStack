@@ -1,0 +1,36 @@
+<div class="post col-md-12">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class = "post_heading">
+        <a href="/blog/{{p.key.id()}}" class="post_title">{{p.subject}}</a>
+      </h3>
+    </div>
+    <div class="col-md-12">
+      <small class = "post-date">{{p.created.strftime("%b %d, %Y")}}</small>
+    </div>
+    <div class="col-md-12 post_content">
+      <p>
+        {{p._render_text | safe}}
+      </p>
+    </div>
+    <div class="PostButtons">
+      <a class= "btn btn-primary btn-default-md" href="/blog/editpost/{{p.key.id()}}">Edit</a>
+      <a class= "btn btn-primary btn-default-md" href="/blog/deletepost/{{p.key.id()}}">Delete</a>
+      <a class= "btn btn-primary btn-default-md" href="/blog/newcomment/{{p.key.id()}}">Comment</a>
+      <a class= "btn btn-primary btn-default-md" href="/blog/like/{{p.key.id()}}">Like</a>
+      <a class= "btn btn-primary btn-default-md" href="/blog/unlike/{{p.key.id()}}">UnLike</a>
+      {% for c in p.comments %}
+      <div id="commentarea">
+        {{c.content}}
+        {% set commentAuthor = (c.author.get()).name %}
+        {% if commentAuthor %}
+        <div id="commentButtons">
+          <a class= "btn btn-primary btn-default-md" href="/blog/editcomment/{{c.key.id()}}">AddComment</a>
+          <a class= "btn btn-primary btn-default-md" href="/blog/deletecomment/{{c.key.id()}}">DeleteComment</a>
+        </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>

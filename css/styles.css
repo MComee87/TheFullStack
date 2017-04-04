@@ -1,0 +1,60 @@
+body {
+  padding-top: 50px;
+}
+
+h2 {
+  color: #337ab7;
+}
+
+input {
+  width: 100%;
+}
+
+p {
+  font-family: 'BenchNine', sans-serif;
+  font-size: 28px;
+}
+
+#userform {
+  width: 50%;
+}
+
+#site-title {
+  font-family: 'Acme', sans-serif;
+  font-size: 42px;
+
+}
+
+#keyword {
+  font-family: 'Acme', sans-serif;
+  font-size: 40px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: left;
+}
+
+.content {
+  height: 100px;
+}
+
+/*Navbar*/
+.navbar{
+  background-color: #000;
+  padding: 10px;
+  border: none;
+}
+
+.navbar ul li a {
+  border-radius: 10px;
+}
+
+.navbar-inverse .navbar-brand{
+  color: #337ab7;
+}
+
+.navbar-inverse .navbar-nav>.active>a {
+  color:#ffffff;
+  background-color: #337ab7;
+}

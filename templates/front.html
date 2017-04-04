@@ -1,0 +1,9 @@
+{% extends "default.html" %}
+
+{% block content %}
+   <br>
+   <p><span id="keyword">Welcome </span> to The Full Stack... A blog for Web Developers.</p>
+    {% for p in posts %}
+      {{ p.render() | safe }}
+   {% endfor %}
+{% endblock %}
