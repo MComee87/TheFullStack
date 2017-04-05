@@ -1,7 +1,7 @@
 # TheFullStack
+view TheFullStack at https://the-full-stack-163622.appspot.com/
 
-
-   The Full Stack
+   The Full Stack 
 
 The blog is written in python, html, css and using twitter's bootstrap and delpoyed with Google's App Engine.
 
