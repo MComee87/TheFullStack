@@ -211,7 +211,7 @@ class EditPost(BaseHandler):
         content = self.request.get('post_text')
 
         if subject and content:
-        	if post.author.id() != self.user.key.id():
+        	if post.author.id() == self.user.key.id():
         		post.subject = subject
                 post.content = content
                 post.put()
