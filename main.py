@@ -211,11 +211,12 @@ class EditPost(BaseHandler):
         content = self.request.get('post_text')
 
         if subject and content:
-            post.subject = subject
-            post.content = content
-            post.put()
-            time.sleep(0.1)
-            self.redirect('/')
+        	if post.author.id() != self.user.key.id():
+        		post.subject = subject
+                post.content = content
+                post.put()
+                time.sleep(0.1)
+                self.redirect('/')
         else:
             error = "Please enter Subject and Content"
             self.render("editpost.html",
@@ -294,10 +295,13 @@ class EditComment(BaseHandler):
             self.error(404)
             return
 
-        if self.user:
-            self.render("editcomment.html", content=comment.content)
+        if post.author != self.user.key:
+            self.write("You can not edit other peoples posts")
         else:
-            self.redirect("/login")
+            if self.user:
+                self.render("editcomment.html", content=comment.content)
+            else:
+                self.redirect("/login")
 
     def post(self, comment_id):
         if not self.user:
