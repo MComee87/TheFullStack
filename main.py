@@ -212,7 +212,7 @@ class EditPost(BaseHandler):
 
         if subject and content:
         	if post.author.id() != self.user.key.id():
-        		post.subject = subject
+        		    post.subject = subject
                 post.content = content
                 post.put()
                 time.sleep(0.1)
